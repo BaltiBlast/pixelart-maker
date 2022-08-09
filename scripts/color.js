@@ -12,10 +12,16 @@ const color = {
   // ---------------------------------------------------------------------
   // PANEL COLOR + COLOR PICKER
   panelColor: () => {
+    // DIV CONTAINER COLOR PICKER + ATRIBUTES
     const colorPanelContainer = document.createElement("div");
+    colorPanelContainer.setAttribute("class", "color__picker");
 
+    // TEXT + ATRIBUTES
     const text = document.createElement("p");
+    text.setAttribute("class", "color__picker-text");
     text.innerText = "Color Picker";
+
+    // ADD IN COLOR PICKER CONTAINER
     colorPanelContainer.appendChild(text);
 
     const picker = new Picker(colorPanelContainer);
