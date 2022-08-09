@@ -1,27 +1,30 @@
 const grid = {
   // ---------------------------------------------------------------------
   // Generic variables / values
-  appContainer: document.getElementById("app"),
+  mainContainer: document.getElementById("main"),
   squareContainer: document.createElement("div"),
-  mouseDown: false,
+
   // ---------------------------------------------------------------------
   // Init script
   init: () => {
     grid.gridContainer();
-    grid.handleMouseUp();
-    grid.handleMouseDown();
   },
 
   // ---------------------------------------------------------------------
   // grid generator methode
   gridGenerator: (number, size) => {
-    // Destructured grid object
-    const { squareContainer, changeColor, applyColorHold } = grid;
+    // -- DESTRUCTURATION -- //
+    // grid object
+    const { squareContainer } = grid;
+
+    // color object
+    const { applyColorHold, changeColor } = color;
+
+    // -- CREATE COMPLETE GRID -- //
 
     // Purge "squareContainer" every time "gridGenerator" was called
     squareContainer.innerHTML = "";
 
-    // -- LOOP CREATE COMPLETE GRID
     for (let index = 0; index < number; index++) {
       // -- CREATE COL -- //
       const col = document.createElement("div");
@@ -35,6 +38,7 @@ const grid = {
         // Square generic style
         square.style.width = `${size}px`;
         square.style.height = `${size}px`;
+        square.style.backgroundColor = "white";
 
         // event on each square
         square.addEventListener("mouseover", applyColorHold);
@@ -49,34 +53,8 @@ const grid = {
   // SET GRID CONTAINER
   gridContainer: () => {
     // Destructured grid object
-    const { squareContainer, appContainer } = grid;
+    const { squareContainer, mainContainer } = grid;
     squareContainer.setAttribute("class", "grid");
-    appContainer.appendChild(squareContainer);
-  },
-
-  // ---------------------------------------------------------------------
-  // CHANGE COLOR FUNCTION
-  changeColor: (e) => {
-    e.target.style.backgroundColor = "black";
-  },
-
-  // ---------------------------------------------------------------------
-  //
-  handleMouseDown: () => {
-    document.body.addEventListener("mousedown", () => {
-      grid.mouseDown = true;
-    });
-  },
-
-  handleMouseUp: () => {
-    document.body.addEventListener("mouseup", () => {
-      grid.mouseDown = false;
-    });
-  },
-
-  applyColorHold: (e) => {
-    if (grid.mouseDown) {
-      e.target.style.backgroundColor = "black";
-    }
+    mainContainer.appendChild(squareContainer);
   },
 };

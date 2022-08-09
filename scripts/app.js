@@ -2,6 +2,7 @@ const app = {
   init: function () {
     form.init();
     grid.init();
+    color.init();
   },
 };
 
