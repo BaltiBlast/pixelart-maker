@@ -1,0 +1,9 @@
+/* ----- GRID SECTION ----- */
+.grid {
+  display: flex;
+}
+
+.square {
+  margin: 1px;
+  border: 1px solid black;
+}
