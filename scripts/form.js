@@ -25,10 +25,9 @@ const form = {
 
       // Input form value ~
       let numberSquare = inputFormNumber.value;
-      let sizeSquare = inputFormSize.value;
 
       // methode called in "grid.js" ~
-      grid.gridGenerator(numberSquare, sizeSquare);
+      grid.gridGenerator(numberSquare);
     });
 
     // -- INPUT NUMBER & ATTRIBUTES -- //
@@ -38,20 +37,8 @@ const form = {
       className: "form__input",
       type: "number",
       placeholder: "number",
-      max: 10,
+      max: 100,
       min: 1,
-    });
-
-    // -- INPUT SIZE & ATTRIBUTE -- //
-    const inputFormSize = document.createElement("input");
-    Object.assign(inputFormSize, {
-      id: "inputSize",
-      className: "form__input",
-      type: "number",
-      placeholder: "size",
-      max: 70,
-      min: 20,
-      step: 5,
     });
 
     // -- SUBMIT BUTTON & ATTRIBUTES -- //
@@ -62,7 +49,7 @@ const form = {
       className: "form__input",
     });
 
-    formDataGrid.append(inputFormNumber, inputFormSize, buttonFormSubmit);
+    formDataGrid.append(inputFormNumber, buttonFormSubmit);
     headerContainer.appendChild(formDataGrid);
   },
 };

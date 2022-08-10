@@ -41,20 +41,20 @@ const color = {
   // Mousedown event on body
   handleMouseDown: () => {
     document.body.addEventListener("mousedown", () => {
-      grid.mouseDown = true;
+      color.mouseDown = true;
     });
   },
 
   // Mouseup event on body
   handleMouseUp: () => {
     document.body.addEventListener("mouseup", () => {
-      grid.mouseDown = false;
+      color.mouseDown = false;
     });
   },
 
   // Color change when click is holded
   applyColorHold: (e) => {
-    if (grid.mouseDown) {
+    if (color.mouseDown) {
       e.target.style.backgroundColor = color.currentColor;
     }
   },
